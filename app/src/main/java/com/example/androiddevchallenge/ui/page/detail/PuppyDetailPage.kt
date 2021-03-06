@@ -15,7 +15,6 @@
  */
 package com.example.androiddevchallenge.ui.page.detail
 
-import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -35,7 +34,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -53,25 +51,23 @@ fun PuppyDetailPage(
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val localRouter = localRouter.current
-    Crossfade(targetState = "") {
-        Scaffold(
-            topBar = {
-                TopAppBar(
-                    title = { Text(text = uiState.puppy.name) },
-                    navigationIcon = {
-                        Icon(
-                            imageVector = Icons.Filled.ArrowBack,
-                            contentDescription = null,
-                            modifier = Modifier
-                                .clickable { localRouter.back() }
-                                .padding(start = 8.dp)
-                        )
-                    }
-                )
-            },
-        ) {
-            PuppyView(puppy = uiState.puppy)
-        }
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text(text = uiState.puppy.name) },
+                navigationIcon = {
+                    Icon(
+                        imageVector = Icons.Filled.ArrowBack,
+                        contentDescription = null,
+                        modifier = Modifier
+                            .clickable { localRouter.back() }
+                            .padding(start = 8.dp)
+                    )
+                }
+            )
+        },
+    ) {
+        PuppyView(puppy = uiState.puppy)
     }
 }
 
@@ -101,7 +97,6 @@ fun PuppyView(puppy: Puppy) {
             fontSize = 14.sp,
             modifier = Modifier.padding(16.dp)
         )
-        val context = LocalContext.current
         Box(
             contentAlignment = Alignment.TopCenter,
             modifier = Modifier

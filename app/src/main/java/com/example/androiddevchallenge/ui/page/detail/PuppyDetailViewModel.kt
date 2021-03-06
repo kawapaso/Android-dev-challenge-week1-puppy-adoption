@@ -57,7 +57,7 @@ data class PuppyDetailUiState(
                 description = "-",
                 breed = "-",
                 imageResId = R.drawable.dog1,
-                hasNego = false
+                hasApply = false
             )
         )
     }

@@ -23,7 +23,7 @@ data class Puppy(
     val breed: String,
     val description: String,
     val imageResId: Int,
-    val hasNego: Boolean,
+    val hasApply: Boolean,
 )
 
 data class PuppyId(val value: String) : Serializable

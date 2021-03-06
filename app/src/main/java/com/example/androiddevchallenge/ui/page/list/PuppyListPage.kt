@@ -109,7 +109,7 @@ fun PuppyListCell(puppy: Puppy, onClick: (Puppy) -> Unit) {
                     fontStyle = FontStyle.Italic,
                     modifier = Modifier.padding(top = 8.dp, start = 16.dp),
                 )
-                if (puppy.hasNego) {
+                if (puppy.hasApply) {
                     Text(
                         text = "Applying",
                         fontSize = 12.sp,
@@ -144,8 +144,7 @@ fun DefaultPreview() {
 fun CellPreview() {
     MyTheme {
         PuppyListCell(
-            Puppy(id = PuppyId(""), "", "", "", R.drawable.dog1, true),
-            {}
-        )
+            Puppy(id = PuppyId(""), "Taro", "bulldog", "please", R.drawable.dog1, true)
+        ) {}
     }
 }

@@ -26,7 +26,7 @@ import kotlinx.coroutines.launch
 class PuppyListViewModel(
     private val repository: PuppyRepository = PuppyRepository.INSTANCE
 ) : ViewModel() {
-    private val _uiState = MutableStateFlow<PuppyListUiState>(PuppyListUiState.DEFAULT)
+    private val _uiState = MutableStateFlow(PuppyListUiState.DEFAULT)
     val uiState: StateFlow<PuppyListUiState> = _uiState
 
     init {

@@ -39,7 +39,7 @@ private fun puppy(): Puppy = Puppy(
     breed = typeCandidates.random(),
     description = descriptionCandidates.random(),
     imageResId = imageResCandidates.random(),
-    hasNego = Random.Default.nextFloat() <= 0.2
+    hasApply = Random.Default.nextFloat() <= 0.2
 )
 
 private val nameCandidates = listOf(

@@ -32,7 +32,7 @@ import com.example.androiddevchallenge.ui.page.detail.PuppyDetailPage
 import com.example.androiddevchallenge.ui.page.detail.PuppyDetailViewModel
 import com.example.androiddevchallenge.ui.page.list.PuppyListPage
 
-val localRouter = compositionLocalOf<Router> { Router(null) }
+val localRouter = compositionLocalOf<Router> { error("router must exists.") }
 
 @Composable
 fun RouterComponent() {
@@ -54,12 +54,12 @@ fun RouterComponent() {
     }
 }
 
-data class Router(val navController: NavController?) {
+data class Router(val navController: NavController) {
     fun toDetail(puppy: Puppy) {
-        navController?.navigate("detail/${puppy.id.value}")
+        navController.navigate("detail/${puppy.id.value}")
     }
 
     fun back() {
-        navController?.popBackStack()
+        navController.popBackStack()
     }
 }
